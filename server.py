@@ -1,13 +1,13 @@
 """
 Very simple MCP server exposing two tools: `ping` and `traceroute`.
 
-Runs locally over HTTP (Streamable HTTP transport), bound to 0.0.0.0 on port 8000
+Runs locally over HTTP (Streamable HTTP transport), bound to 127.0.0.1 on port 8000
 
 Run:
     pip install "mcp[cli]"
     python server.py
 
-Server will listen on http://0.0.0.0:8000/mcp
+Server will listen on http://127.0.0.1:8000/mcp
 """
 
 import json
@@ -19,7 +19,7 @@ import sys
 from mcp.server.fastmcp import FastMCP
 
 # name is what shows up in MCP clients
-mcp = FastMCP("net-tools", host="0.0.0.0", port=8000)
+mcp = FastMCP("net-tools", host="127.0.0.1", port=8000)
 
 
 def _run(cmd: list[str], timeout: int = 30) -> str:
